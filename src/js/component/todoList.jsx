@@ -15,7 +15,9 @@ export const TodoList = () => {
                     onChange={(e) => setInputValue(e.target.value)}
                     value={inputValue}
                     onKeyUp={(e) => {
-                        if (e.key === "Enter") {setTodos(todos.concat([inputValue])); 
+                        if (e.key === "Enter") {
+                            if (inputValue.trim() === "") return
+                            setTodos(todos.concat([inputValue])); 
                             setInputValue("");
                         }
                     }}
